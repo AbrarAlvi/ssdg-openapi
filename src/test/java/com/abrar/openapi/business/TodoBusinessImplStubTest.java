@@ -13,7 +13,7 @@ import com.abrar.openapi.service.TodoService;
 
 public class TodoBusinessImplStubTest {
 
-	@Test
+	/*@Test
 	public void testRetreiveTodosRelatedToSpring_usingAMock() {
 		TodoService toDoServiceMock = mock(TodoService.class);
 		when(toDoServiceMock.retrieveTodoServices("Dummy")).thenReturn(Arrays.asList("LearnJava","LearnC"));
@@ -31,6 +31,6 @@ public class TodoBusinessImplStubTest {
 		List<String> filteredList = todoBusinessImpl.retrieveTodoRelatedToSpring("Dummy");
 		assertEquals(0, filteredList.size());
 		
-	}
+	}*/
 
 }

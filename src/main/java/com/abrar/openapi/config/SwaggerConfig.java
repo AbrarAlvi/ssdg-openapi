@@ -1,18 +1,20 @@
 package com.abrar.openapi.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
+
 @Configuration
 public class SwaggerConfig {
 	
@@ -34,9 +36,17 @@ public class SwaggerConfig {
 	
 ApiInfo getApiInfo(){
 		
-		Contact contact =  new Contact(" : Abrar Alvi", " : www.sample.com", " sample@sample.com");
+		//Contact contact =  new Contact(" : Abrar Alvi", " : www.sample.com", " sample@sample.com");
 		
-		return new ApiInfoBuilder().title("SSDG-API").description("All ssdg API").version("1.0").contact(contact).build();
+		return new ApiInfoBuilder().title("SSDG-API").description("All ssdg API").version("1.0").build();
 	}
+
+
+
+@Autowired
+public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("**").addResourceLocations("classpath:/dist/");
+    registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+}
 
 }
