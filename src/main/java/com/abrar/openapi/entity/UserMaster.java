@@ -1,14 +1,21 @@
 package com.abrar.openapi.entity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+@SequenceGenerator(name="usermaster_new", sequenceName="slpo_aop.usermaster_new_seq")
 @Entity
-@Table(name="user_master")
+@Table(name = "user_master", schema="slpo_aop")
 public class UserMaster {
 	
 	
@@ -16,17 +23,18 @@ public class UserMaster {
 	String userId;
 	String userName;
 	String fatherName;
-	Timestamp dateOfBirth;
+	Date dateOfBirth;
 	String addressId;
 	String gender;
-	String recordAddUser;
-	Timestamp recordAddDate;
-	String recordUpdateUser;
-	Timestamp recordUpdateDate;
+	Date recordAddUser;
+	Date recordAddDate;
+	Date recordUpdateUser;
+	Date recordUpdateDate;
 	String userPassword;
 	
 	
 	@Id
+	@GeneratedValue(generator="usermaster_new", strategy = GenerationType.SEQUENCE)
 	@Column(name = "id", unique = true, nullable = false)
 	public Long getId() {
 		return id;
@@ -58,12 +66,12 @@ public class UserMaster {
 	public void setFatherName(String fatherName) {
 		this.fatherName = fatherName;
 	}
-	
-	@Column(name = "dob", nullable = true, length = 19)
-	public Timestamp getDateOfBirth() {
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dob", nullable = true, length = 255)
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(Timestamp dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	
@@ -83,36 +91,38 @@ public class UserMaster {
 		this.gender = gender;
 	}
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "record_add_user", length = 255)
-	public String getRecordAddUser() {
+	public Date getRecordAddUser() {
 		return recordAddUser;
 	}
-	public void setRecordAddUser(String recordAddUser) {
+	public void setRecordAddUser(Date recordAddUser) {
 		this.recordAddUser = recordAddUser;
 	}
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "record_add_date", nullable = false, length = 19)
-	public Timestamp getRecordAddDate() {
+	public Date getRecordAddDate() {
 		return recordAddDate;
 	}
-	public void setRecordAddDate(Timestamp recordAddDate) {
+	public void setRecordAddDate(Date recordAddDate) {
 		this.recordAddDate = recordAddDate;
 	}
-	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "record_update_user", length = 255)
-	public String getRecordUpdateUser() {
+	public Date getRecordUpdateUser() {
 		return recordUpdateUser;
 	}
-	public void setRecordUpdateUser(String recordUpdateUser) {
+	public void setRecordUpdateUser(Date recordUpdateUser) {
 		this.recordUpdateUser = recordUpdateUser;
 	}
 	
-	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "record_update_date", nullable = false, length = 19)
-	public Timestamp getRecordUpdateDate() {
+	public Date getRecordUpdateDate() {
 		return recordUpdateDate;
 	}
-	public void setRecordUpdateDate(Timestamp recordUpdateDate) {
+	public void setRecordUpdateDate(Date recordUpdateDate) {
 		this.recordUpdateDate = recordUpdateDate;
 	}
 	
