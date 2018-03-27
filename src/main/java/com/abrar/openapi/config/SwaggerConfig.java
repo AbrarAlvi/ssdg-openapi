@@ -42,11 +42,13 @@ ApiInfo getApiInfo(){
 	}
 
 
+/*
 
 @Autowired
 public void addResourceHandlers(final ResourceHandlerRegistry registry) {
     registry.addResourceHandler("**").addResourceLocations("classpath:/dist/");
     registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 }
+*/
 
 }
