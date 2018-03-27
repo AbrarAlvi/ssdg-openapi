@@ -1,10 +1,13 @@
 package com.abrar.openapi.service;
 
 import com.abrar.openapi.entity.Hospital;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+@Service
 
 public class HospitalService {
     private List<Hospital> hospitalList=new ArrayList<>(Arrays.asList(

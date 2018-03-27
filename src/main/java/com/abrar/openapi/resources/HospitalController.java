@@ -4,15 +4,14 @@ package com.abrar.openapi.resources;
 import com.abrar.openapi.entity.Hospital;
 import com.abrar.openapi.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@RequestMapping("/hospital")
+
+/*@RequestMapping("/hospital")*/
+@RestController
 public class HospitalController {
 
     @Autowired
