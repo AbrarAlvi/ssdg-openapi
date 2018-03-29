@@ -1,6 +1,8 @@
 package com.abrar.openapi.service;
 
 import com.abrar.openapi.entity.Hospital;
+import com.abrar.openapi.repository.HospitalRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +12,11 @@ import java.util.List;
 @Service
 
 public class HospitalService {
+
+    @Autowired
+    private HospitalRepository hospitalRepository;
+
+
     private List<Hospital> hospitalList=new ArrayList<>(Arrays.asList(
 
             new Hospital(1001, "Apollo Hospital", "Chennai", 3.8),
@@ -20,12 +27,20 @@ public class HospitalService {
 
 
 
-    public List<Hospital> getAllHospitals(){
+   /* public List<Hospital> getAllHospitals(){
 
         return hospitalList;
 
-    }
+    }*/
+   public List<Hospital> getAllHospitals(){
 
+       List<Hospital> hospitalList= new ArrayList<Hospital>();
+
+       hospitalRepository.findAll().forEach(hospitalList::add);
+
+       return hospitalList;
+
+   }
 
 
     public Hospital getHospital(int id){

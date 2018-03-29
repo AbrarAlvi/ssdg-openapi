@@ -1,7 +1,11 @@
 package com.abrar.openapi.entity;
 
-public class Hospital {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Hospital {
+@Id
     private int id;
 
     private String name;
