@@ -14,6 +14,8 @@ public class Hospital {
 
     private double rating;
 
+    public Hospital() {
+    }
 
     public Hospital(int id, String name, String city, double rating) {
 

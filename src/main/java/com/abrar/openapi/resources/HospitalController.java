@@ -17,7 +17,7 @@ public class HospitalController {
     @Autowired
     private HospitalService hospitalService;
 
-    @RequestMapping(value = "/hospitals/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/test/hospitals/{id}", method = RequestMethod.GET)
 
     public @ResponseBody
     Hospital getHospital(@PathVariable("id") int id) throws Exception {
@@ -26,12 +26,33 @@ public class HospitalController {
 
     }
 
-    @RequestMapping(value = "/hospitals", method = RequestMethod.GET)
+    @RequestMapping(value = "/test/hospitals/", method = RequestMethod.GET)
 
     public @ResponseBody
     List<Hospital> getAllHospitals() throws Exception {
         return this.hospitalService.getAllHospitals();
 
+    }
+
+    @RequestMapping(value = "/test/hospitals/", method = RequestMethod.POST,consumes = {"application/json"})
+    public @ResponseBody
+    void addHospitals(@RequestBody Hospital hospital) throws Exception {
+
+        this.hospitalService.addHospital(hospital);
+    }
+
+    @RequestMapping(value = "/test/hospitals/", method = RequestMethod.DELETE,consumes = {"application/json"})
+    public @ResponseBody
+    void deleteHospitals(@RequestBody Hospital hospital) throws Exception {
+
+        this.hospitalService.deleteHospital(hospital);
+    }
+
+    @RequestMapping(value = "/test/hospitals/", method = RequestMethod.PUT,consumes = {"application/json"})
+    public @ResponseBody
+    void updateHospitals(@RequestBody Hospital hospital) throws Exception {
+
+        this.hospitalService.updateHospital(hospital);
     }
 
 }

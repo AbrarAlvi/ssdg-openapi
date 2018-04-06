@@ -45,8 +45,25 @@ public class HospitalService {
 
     public Hospital getHospital(int id){
 
-        return hospitalList.stream().filter(c->c.getId()==(id)).findFirst().get();
+        //return hospitalList.stream().filter(c->c.getId()==(id)).findFirst().get();
+
+        return hospitalRepository.findOne(id);
 
     }
 
+    public void addHospital(Hospital hospital) {
+
+      hospitalRepository.save(hospital);
+    }
+
+    public void deleteHospital(Hospital hospital) {
+
+
+        hospitalRepository.delete(1000);
+    }
+
+    public void updateHospital(Hospital hospital) {
+
+        hospitalRepository.save(hospital);
+    }
 }
